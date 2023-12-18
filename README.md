@@ -1,2 +1,1 @@
 # brilliant-minds
-# brilliant-minds
