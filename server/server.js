@@ -19,7 +19,7 @@ const pool = mariadb.createPool({
 
 const app = express();
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -36,22 +36,30 @@ app.get('/', async (req, res) => {
     if (connection) connection.end();
   }
 });
-
-//route to new idea create page
-app.get("/create-idea", async (req, res) => {
+//route to create idea
+app.post('/create', async (req, res) => {
+  const title = req.body.title;
+  const description = req.body.description;
+  let connection
   try {
-    res.send("create page")
-  } catch (err) {
+    connection = await pool.getConnection();  
+    const prepare = await connection.prepare(`INSERT INTO ideas (title, description) VALUES (?, ?)`)
+    prepare.execute([title, description]);
+  } catch(err) {
     throw err;
-  } finally {
+  } finally{
     if (connection) connection.end();
   }
-})
+  });
 
 //route to delete button
-app.get("/delete", async (req, res) => {
+app.delete("/delete", async (req, res) => {
+  let connection
+  const id = req.body.id;
   try {
-    res.send("delete")
+    connection = await pool.getConnection();  
+    const prepare = await connection.prepare(`DELETE FROM ideas WHERE id=?`)
+    prepare.execute([id]);
   } catch (err) {
     throw err;
   } finally {
@@ -59,50 +67,21 @@ app.get("/delete", async (req, res) => {
   }
 });
 
-app.get("/show-ideas", async (req, res) => {
-  let connection;
+//route to update idea
+app.put('/edit', async (req, res) => {
+  const title = req.body.title;
+  const description = req.body.description;
+  let connection
   try {
-    connection = await pool.getConnection();
-    const data = await connection.query(`SELECT * FROM ideas`);
-    res.send(data);
-  } catch (err) {
+    connection = await pool.getConnection();  
+    const prepare = await connection.prepare(`UPDATE ideas SET title = ?, description= ?, WHERE id = ?`)
+    prepare.execute([title, description, id]);
+  } catch(err) {
     throw err;
-  } finally {
+  } finally{
     if (connection) connection.end();
   }
-});
-
-//route to specific ideas ID
-app.get('/ideas/:id', async (req, res) => {
-  let connection;
-  try {
-    connection = await pool.getConnection();
-    const prepare = await connection.prepare(
-      "SELECT * FROM ideas WHERE id = ?"
-    );
-    const data = await prepare.execute([req.params.id]);
-    res.send(data);
-  } catch (err) {
-    throw err;
-  } finally {
-    if (connection) connection.end();
-  }
-});
-
-app.post('/create', async (req, res) => {
-  // let connection;
-  // connection = await pool.getConnection();
-  const title = 'new idea'
-  const description = 'lorem'
-  pool.query(`INSERT INTO ideas (title, description) VALUES (?, ?)`, [title, description], (err, result)=>{
-    if(err){
-      res.send('error');
-    }else{
-      res.send(result)
-    }
-  })
-})
-;
+  });
 
 //server port connection
 app.listen(PORT, function(err){
