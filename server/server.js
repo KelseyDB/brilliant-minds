@@ -36,6 +36,7 @@ app.get('/', async (req, res) => {
     if (connection) connection.end();
   }
 });
+
 //route to create idea
 app.post('/create', async (req, res) => {
   const title = req.body.title;
