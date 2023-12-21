@@ -63,7 +63,7 @@ app.delete("/delete", async (req, res) => {
     connection = await pool.getConnection();  
     const prepare = await connection.prepare(`DELETE FROM ideas WHERE id=?`)
     prepare.execute([id]);
-    res.status(200).send();
+    res.send({query:true});
   } catch (err) {
     throw err;
   } finally {

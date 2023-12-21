@@ -37,11 +37,8 @@
           id:idea.id
         })
       });
-      if (response.ok) {
-        console.log("success");
-      } else{
-        console.log(Error);
-      }
+      const data = await response.json();
+      if(data.query) location.reload();
     })
   });
 
