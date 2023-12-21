@@ -12,5 +12,13 @@ document.getElementById("ideaForm").addEventListener("submit", async(e) => {
       title: title,
       description: description,
     })
-  });
-})
+  })
+  if(!response.ok) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+  else{
+    window.location.href = "http://127.0.0.1:5500/client/index.html";
+    console.log("Idea submitted successfully!");
+  }
+});
