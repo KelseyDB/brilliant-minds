@@ -1,8 +1,7 @@
 document.getElementById("ideaForm").addEventListener("submit", async(e) => {
-  e.preventDefault
+  e.preventDefault();
   const title = document.getElementById("title").value;
   const description = document.getElementById('description').value;
-
   const response = await fetch('http://localhost:3000/create', {
     method: 'POST',
     headers: {
@@ -10,15 +9,16 @@ document.getElementById("ideaForm").addEventListener("submit", async(e) => {
     },
     body: JSON.stringify({
       title: title,
-      description: description,
+      description: description
     })
-  })
-  if(!response.ok) {
+  });
+  if (response.ok) {
+    window.location.href = "./index.html";
+    console.log("success");
+  }
+  else{
     const errorMessage = await response.text();
     throw new Error(errorMessage);
   }
-  else{
-    window.location.href = "http://127.0.0.1:5500/client/index.html";
-    console.log("Idea submitted successfully!");
-  }
 });
+

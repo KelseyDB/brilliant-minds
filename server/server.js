@@ -46,6 +46,8 @@ app.post('/create', async (req, res) => {
     connection = await pool.getConnection();  
     const prepare = await connection.prepare(`INSERT INTO ideas (title, description) VALUES (?, ?)`)
     prepare.execute([title, description]);
+    connection.release();
+    res.status(200).send();
   } catch(err) {
     throw err;
   } finally{
@@ -61,6 +63,7 @@ app.delete("/delete", async (req, res) => {
     connection = await pool.getConnection();  
     const prepare = await connection.prepare(`DELETE FROM ideas WHERE id=?`)
     prepare.execute([id]);
+    res.status(200).send();
   } catch (err) {
     throw err;
   } finally {

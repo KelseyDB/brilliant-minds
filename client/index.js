@@ -24,6 +24,25 @@
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = "x"
     li.append(deleteBtn);
+
+    //eventlistener to remove idea
+    //connect this with route and get IDea.id
+    deleteBtn.addEventListener('click', async (e) => {
+      const response = await fetch ("http://localhost:3000/delete", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id:idea.id
+        })
+      });
+      if (response.ok) {
+        console.log("success");
+      } else{
+        console.log(Error);
+      }
+    })
   });
 
 })();
