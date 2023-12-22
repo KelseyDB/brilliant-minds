@@ -31,11 +31,10 @@
     const ideaTitle = document.createElement('h4');
     ideaTitle.append(idea.title);
     singleIdea.append(ideaTitle);
+
     const ideaDescr = document.createElement('p');
     ideaDescr.append(idea.description);
     singleIdea.append(ideaDescr);
-
-
 
     //eventlistener to remove idea
     //connect this with route and get IDea.id
