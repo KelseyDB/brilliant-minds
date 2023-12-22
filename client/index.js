@@ -1,5 +1,5 @@
 (async () => {
-  const response = await fetch('http://localhost:3000/');
+  const response = await fetch('https://brilliantminds-wuafbbj2.b4a.run/');
   const data = await response.json();
   console.log(data);
   data.reverse();
@@ -39,7 +39,7 @@
     //eventlistener to remove idea
     //connect this with route and get IDea.id
     deleteBtn.addEventListener('click', async (e) => {
-      const response = await fetch ("http://localhost:3000/delete", {
+      const response = await fetch ("https://brilliantminds-wuafbbj2.b4a.run/delete", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
