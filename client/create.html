@@ -4,21 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="module" src="./create.js" defer></script>
-  <link rel="stylesheet" href="create.css">
+  <link rel="stylesheet" href="./styles/create.css">
   <title>Create Idea</title>
 </head>
 <body>
   <header>
+    <img src="img/lightbulb-out.png" alt="">
     <h1>
-      Add your ideas:
+      Add an <br>
+      Idea:
     </h1>
   </header>
-  <form id="ideaForm" name="ideaForm" action="" method="post">
-    <label for="title">Idea title</label><br>
-    <input type="text" id="title" name="title"><br>
-    <label for="description">Idea Description</label><br>
-    <input type="text" id="description" name="description"><br>
-    <input type="submit" value="Submit">
-  </form>
+  <main>
+    <form id="ideaForm" name="ideaForm" action="" method="post">
+      <label for="title">Idea:</label><br>
+      <input type="text" placeholder="Idea" id="title" name="title"><br>
+      <label for="description">Description:</label><br>
+      <textarea name="description" placeholder="Description" cols="30" rows="10" id="description"></textarea><br>
+      <input id="submit" type="submit" value="Create idea">
+    </form>
+  </main>
+  <footer>
+    <p>Made by Kels @ BECODE.</p>
+  </footer>
 </body>
 </html>

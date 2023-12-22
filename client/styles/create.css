@@ -1,0 +1,76 @@
+@import url(https://fonts.googleapis.com/css?family=Rubik:400,900);
+body {
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+body header {
+  font-family: "Rubik", sans-serif;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: lightpink;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+}
+body header img {
+  height: 100px;
+  width: 100px;
+}
+body header h1 {
+  color: purple;
+}
+body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 60px;
+  width: auto;
+}
+body main form {
+  margin: auto;
+  padding: 20px;
+  background-color: lightpink;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+body main form label {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+body main form #title {
+  margin: 10px;
+}
+body main form #description {
+  margin: 10px;
+}
+body main form #submit {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: lightblue;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+body footer {
+  background-color: lightpink;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
