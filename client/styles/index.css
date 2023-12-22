@@ -1,0 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Rubik:400,900);
+body {
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+body header {
+  font-family: "Rubik", sans-serif;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: lightpink;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+}
+body header img {
+  height: 100px;
+  width: 100px;
+}
+body header h1 {
+  color: purple;
+}
+body main {
+  padding: 60px;
+}
+body main .addBox {
+  height: 40px;
+  margin-bottom: 20px;
+}
+body main #ideaList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 40px;
+}
+body main #ideaList .idea {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 10px;
+  width: 250px;
+  height: 250px;
+  background-color: lightpink;
+}
+body main #ideaList .idea .buttonTray {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+body main #ideaList .idea .buttonTray .deleteBtn {
+  height: 25px;
+  cursor: pointer;
+}
+body main #ideaList .idea .buttonTray .editBtn {
+  height: 20px;
+  cursor: pointer;
+}
+body main #ideaList .idea h4 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+body footer {
+  background-color: lightpink;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

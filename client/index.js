@@ -9,21 +9,33 @@
     const ideaList = document.getElementById('ideaList');
     
     //create elements with title, descr 
-    const li = document.createElement('li');
-    li.className = ('idea');
-    ideaList.appendChild(li);
+    const singleIdea = document.createElement('div');
+    singleIdea.className = ('idea fold');
+    ideaList.appendChild(singleIdea);
+
+    const buttonTray = document.createElement('div');
+    buttonTray.className = "buttonTray"
+    singleIdea.append(buttonTray);
+    //create edit button
+    const editBtn = document.createElement('img');
+    editBtn.src = "./img/svg/edit-svgrepo-com (1).svg"
+    editBtn.className = "editBtn"
+    buttonTray.append(editBtn);
+
+    //create delete button
+    const deleteBtn = document.createElement('img');
+    deleteBtn.src = "./img/svg/close-svgrepo-com.svg"
+    deleteBtn.className = "deleteBtn"
+    buttonTray.append(deleteBtn);
 
     const ideaTitle = document.createElement('h4');
     ideaTitle.append(idea.title);
-    li.append(ideaTitle);
+    singleIdea.append(ideaTitle);
     const ideaDescr = document.createElement('p');
     ideaDescr.append(idea.description);
-    li.append(ideaDescr);
+    singleIdea.append(ideaDescr);
 
-    //create delete button
-    const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = "x"
-    li.append(deleteBtn);
+
 
     //eventlistener to remove idea
     //connect this with route and get IDea.id
