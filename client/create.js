@@ -2,7 +2,7 @@ document.getElementById("ideaForm").addEventListener("submit", async(e) => {
   e.preventDefault();
   const title = document.getElementById("title").value;
   const description = document.getElementById('description').value;
-  const response = await fetch('https://brilliantminds-wuafbbj2.b4a.run//create', {
+  const response = await fetch('https://brilliantminds-wuafbbj2.b4a.run/create', {
     method: 'POST',
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
